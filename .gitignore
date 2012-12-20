@@ -11,3 +11,7 @@
 *.lai
 *.la
 *.a
+
+# Extracted Google Test
+contrib/gtest-1.6.0/*
+

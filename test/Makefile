@@ -16,6 +16,7 @@ include $(DEPENDS)
 	rm -f $@.$$$$
 
 % : %.cc
+	@set -e
 	$(CXX) $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $@ $<
 	$@
 

@@ -12,7 +12,7 @@ include $(DEPENDS)
 
 %.d : %.cc
 	set -e; rm -f $@; \
-	$(CXX) -MT $(<:.cc=.o) -MM $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) $< > $@.$$$$; \
+	$(CXX) -MT $(<:.cc=.o) -MM $(TEST_INCLUDE_FLAG) $< > $@.$$$$; \
 	sed 's,\($*\)\.o[ :]*,\1 $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 

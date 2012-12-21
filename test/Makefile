@@ -2,6 +2,7 @@
 SOURCES:=$(wildcard test/*.cc)
 OBJS:=$(SOURCES:.cc=.o)
 DEPENDS:=$(SOURCES:.cc=.d)
+DEBUG_INFO:=$(SOURCES:.cc=.dSYM)
 TARGETS:=$(SOURCES:.cc=)
 
 .PHONY : all test clean $(OBJS)
@@ -17,10 +18,10 @@ include $(DEPENDS)
 
 % : %.cc
 	@set -e
-	$(CXX) $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $@ $<
+	$(CXX) -ggdb $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $@ $<
 	$@
 
 test : $(TARGETS)
 
 clean : 
-	rm -f $(TARGETS) $(DEPENDS)
+	rm -rf $(TARGETS) $(DEPENDS) $(DEBUG_INFO)

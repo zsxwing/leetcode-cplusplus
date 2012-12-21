@@ -2,7 +2,7 @@
 #ifndef TREE_NODE_H
 #define TREE_NODE_H
 
-#include <stdlib.h>
+#include <stddef.h>
 
 struct TreeNode {
     int val;

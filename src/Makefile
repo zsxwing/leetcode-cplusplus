@@ -1,5 +1,2 @@
-
-
-%.o : %.cc
-	echo $%
+# We do not need to do anything.
 

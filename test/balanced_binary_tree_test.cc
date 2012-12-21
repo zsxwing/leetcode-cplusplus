@@ -1,5 +1,5 @@
 #include "common.h"
-#include "balanced_binary_tree.cc"
+#include "balanced_binary_tree.h"
 #include <gtest/gtest.h>
 
 TEST(BalancedBinaryTree, isBalanced) {

@@ -1,5 +1,5 @@
 
-CC:=g++
+CXX:=g++
 
 BUILD_DIR=build
 LIB_DIR:=lib
@@ -15,4 +15,5 @@ TEST_LIB_FLAG:=-L$(LIB_DIR) $(foreach l,$(TEST_LIB),-l$(l))
 
 include src/Makefile
 include test/Makefile
+
 

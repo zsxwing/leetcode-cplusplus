@@ -9,5 +9,6 @@ fi
 touch src/${question}.cc && \
 echo "#include \"common.h\"" >> test/${question}_test.cc && \
 echo "#include \"${question}.cc\"" >> test/${question}_test.cc && \
-echo "#include <gtest/gtest.h>" >> test/${question}_test.cc
+echo "#include <gtest/gtest.h>" >> test/${question}_test.cc && \
+echo "" >> test/${question}_test.cc
 

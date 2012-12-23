@@ -6,8 +6,8 @@ class IndexComparator {
 private:
   vector<int> *numbers;
 public:
-  IndexComparator(vector<int> &numbers) {
-    this->numbers = &numbers;
+  IndexComparator(vector<int> &numbers) :
+      numbers(&numbers) {
   }
   bool operator()(int i, int j) {
     return (*numbers)[i] < (*numbers)[j];

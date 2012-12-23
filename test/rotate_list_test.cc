@@ -33,7 +33,7 @@ TEST(RotateList, rotateRightWithOneNodeList) {
   ASSERT_EQ(&one, s.rotateRight(&one, 97));
 }
 
-TEST(RotateList, rotateRightWithLessK0) {
+TEST(RotateList, rotateRightWithK0) {
   Solution s;
   ListNode one(1);
   ListNode two(2);
@@ -44,7 +44,7 @@ TEST(RotateList, rotateRightWithLessK0) {
   ASSERT_EQ(NULL, rotate->next);
 }
 
-TEST(RotateList, rotateRightWithLessK1) {
+TEST(RotateList, rotateRightWithK1) {
   Solution s;
   ListNode one(1);
   ListNode two(2);
@@ -55,7 +55,7 @@ TEST(RotateList, rotateRightWithLessK1) {
   ASSERT_EQ(NULL, rotate->next);
 }
 
-TEST(RotateList, rotateRightWithLessK2) {
+TEST(RotateList, rotateRightWithK2) {
   Solution s;
   ListNode one(1);
   ListNode two(2);
@@ -66,7 +66,7 @@ TEST(RotateList, rotateRightWithLessK2) {
   ASSERT_EQ(NULL, rotate->next);
 }
 
-TEST(RotateList, rotateRightWithLessK3) {
+TEST(RotateList, rotateRightWithK3) {
   Solution s;
   ListNode one(1);
   ListNode two(2);

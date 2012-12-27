@@ -19,7 +19,7 @@ include $(DEPENDS)
 % : %.cc
 	@set -e
 	$(CXX) -ggdb $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $@ $<
-	$@
+	$(VALGRIND) $@
 
 test : $(TARGETS)
 

@@ -24,4 +24,4 @@ include $(DEPENDS)
 test : $(TARGETS)
 
 clean : 
-	rm -rf $(TARGETS) $(DEPENDS) $(DEBUG_INFO)
+	rm -rf $(shell find test/* | grep -v .cc | grep -v Makefile)

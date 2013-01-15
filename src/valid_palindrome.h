@@ -9,16 +9,13 @@ public:
     int left = 0;
     int right = length - 1;
     while (left < right) {
-      while (left < length && !isalnum(s[left])) {
+      while (left < right && !isalnum(s[left])) {
         left++;
       }
-      if (left >= length) {
-        break;
-      }
-      while (right >= 0 && !isalnum(s[right])) {
+      while (left < right && !isalnum(s[right])) {
         right--;
       }
-      if (right < 0) {
+      if (left >= right) {
         break;
       }
       if (tolower(s[left++]) != tolower(s[right--])) {

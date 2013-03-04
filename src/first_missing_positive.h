@@ -1,3 +1,5 @@
+#include <stdlib.h>
+
 class Solution {
 public:
   int firstMissingPositive(int A[], int n) {

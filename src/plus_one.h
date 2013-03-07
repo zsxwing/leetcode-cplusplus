@@ -13,6 +13,7 @@ public:
         carry = 1;
       } else {
         carry = 0;
+        break;
       }
     }
     if (carry > 0) {

@@ -1,10 +1,19 @@
-#!/bin/sh
+#!/bin/bash
 
-question=$1
-if [ "" = "$question" ]; then
+if [[ $# -eq 0 ]] ; then
 	echo "Need the question argument."; exit 1
 fi
 
+args=""
+for arg in "$@" ; do
+    if [[ -z "${args}" ]] ; then
+        args=${arg}
+    else
+        args=${args}_${arg}
+    fi
+done 
+
+question=$( echo ${args} | tr [A-Z] [a-z] )
 
 touch src/${question}.h && \
 echo "#include \"common.h\"" >> test/${question}_test.cc && \

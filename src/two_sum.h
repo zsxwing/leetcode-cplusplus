@@ -1,13 +1,9 @@
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 class IndexComparator {
 private:
   vector<int> *numbers;
 public:
-  IndexComparator(vector<int> &numbers) :
-      numbers(&numbers) {
+  IndexComparator(vector<int> *numbers) :
+      numbers(numbers) {
   }
   bool operator()(int i, int j) {
     return (*numbers)[i] < (*numbers)[j];
@@ -22,7 +18,7 @@ public:
     for (int i = 0; i < numbers.size(); i++) {
       indices[i] = i;
     }
-    sort(indices, indices + numbers.size(), IndexComparator(numbers));
+    sort(indices, indices + numbers.size(), IndexComparator(&numbers));
     int low = 0;
     int high = numbers.size() - 1;
     while (low < high) {
@@ -35,17 +31,10 @@ public:
         break;
       }
     }
-    int lowIndex = indices[low];
-    int highIndex = indices[high];
+    int lowIndex = min(indices[low], indices[high]) + 1; // not zero-based
+    int highIndex = max(indices[low], indices[high]) + 1; // not zero-based
     delete[] indices;
-    vector<int> result;
-    if (lowIndex < highIndex) {
-      result.push_back(lowIndex + 1);
-      result.push_back(highIndex + 1);
-    } else {
-      result.push_back(highIndex + 1);
-      result.push_back(lowIndex + 1);
-    }
-    return result;
+    int result[] = { lowIndex, highIndex };
+    return vector<int>(result, result + 2);
   }
 };

@@ -25,4 +25,4 @@ test/*
 !test/Makefile
 test/*.dSYM
 test/*.d
-
+test/*.unittest

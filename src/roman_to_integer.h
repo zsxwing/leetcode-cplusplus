@@ -9,13 +9,11 @@ public:
     symbols['X'] = 10;
     symbols['V'] = 5;
     symbols['I'] = 1;
-    symbols['\0'] = 0;
 
-    const char *str = s.c_str();
-    int num = 0;
-    for (int i = 0; i < s.size(); i++) {
-      char c = str[i];
-      char nextC = str[i + 1];
+    int num = symbols[s[s.size() - 1]];
+    for (int i = s.size() - 2; i >= 0; i--) {
+      char c = s[i];
+      char nextC = s[i + 1];
       if (symbols[c] < symbols[nextC]) {
         num -= symbols[c];
       } else {

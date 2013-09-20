@@ -1,5 +1,4 @@
 class Solution {
-
 private:
   int getBalancedTreeHeight(TreeNode *root) {
     if (root == NULL)
@@ -7,10 +6,8 @@ private:
     int leftHeight = getBalancedTreeHeight(root->left);
     int rightHeight = getBalancedTreeHeight(root->right);
     if (leftHeight >= 0 && rightHeight >= 0) {
-      if (leftHeight + 1 == rightHeight) {
-        return rightHeight + 1;
-      } else if (leftHeight == rightHeight + 1 || leftHeight == rightHeight) {
-        return leftHeight + 1;
+      if (abs(leftHeight - rightHeight) <= 1) {
+        return max(leftHeight, rightHeight) + 1;
       }
     }
     return -1;

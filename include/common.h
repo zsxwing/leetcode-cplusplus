@@ -3,6 +3,7 @@
 
 #include <stdlib.h>
 #include <assert.h>
+#include <limits.h>
 
 #include <string>
 #include <vector>

@@ -2,8 +2,12 @@
 #define COMMON_H
 
 #include <stdlib.h>
+#include <assert.h>
+
 #include <string>
 #include <vector>
+#include <stack>
+#include <list>
 #include <algorithm>
 #include <queue>
 #include <limits>

@@ -1,27 +1,18 @@
 class Solution {
-
 public:
   int lengthOfLastWord(const char *s) {
-    const char *start_of_word = s;
-    const char *end_of_word = s;
-    bool is_last_char_space = false;
+    int len = 0;
     while (*s) {
-      if (*s == ' ') {
-        if (!is_last_char_space) {
-          end_of_word = s;
-          is_last_char_space = true;
-        }
+      if (*s != ' ') {
+        len++;
+        s++;
       } else {
-        if (is_last_char_space) {
-          start_of_word = s;
-          is_last_char_space = false;
+        s++;
+        if (*s && *s != ' ') {
+          len = 0;
         }
       }
-      s++;
     }
-    if (!is_last_char_space) {
-      end_of_word = s;
-    }
-    return end_of_word - start_of_word;
+    return len;
   }
 };

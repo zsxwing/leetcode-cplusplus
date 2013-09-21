@@ -1,32 +1,19 @@
-#include <memory.h>
-#include <vector>
-#include <algorithm>
-using namespace std;
-
 class Solution {
 public:
   int minimumTotal(vector<vector<int> > &triangle) {
-    int n = triangle.size();
+    size_t n = triangle.size();
     if (n == 0) {
       return 0;
     }
-    int *minSums = new int[n];
+    vector<int> minSums(n, 0);
     minSums[0] = triangle[0][0];
     for (int i = 1; i < n; i++) {
-      vector<int> row = triangle[i];
-      minSums[i] = minSums[i - 1] + row[i];
+      minSums[i] = minSums[i - 1] + triangle[i][i];
       for (int j = i - 1; j >= 1; j--) {
-        minSums[j] = min(minSums[j - 1], minSums[j]) + row[j];
+        minSums[j] = min(minSums[j - 1], minSums[j]) + triangle[i][j];
       }
-      minSums[0] += row[0];
+      minSums[0] += triangle[i][0];
     }
-    int minSum = minSums[0];
-    for (int i = 1; i < n; i++) {
-      if (minSum > minSums[i]) {
-        minSum = minSums[i];
-      }
-    }
-    delete[] minSums;
-    return minSum;
+    return *min_element(minSums.begin(), minSums.end());
   }
 };

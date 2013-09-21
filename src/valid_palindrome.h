@@ -1,7 +1,3 @@
-#include <stdlib.h>
-#include <string>
-using namespace std;
-
 class Solution {
 public:
   bool isPalindrome(string s) {
@@ -9,16 +5,11 @@ public:
     int left = 0;
     int right = length - 1;
     while (left < right) {
-      while (left < right && !isalnum(s[left])) {
+      if (!isalnum(s[left])) {
         left++;
-      }
-      while (left < right && !isalnum(s[right])) {
+      } else if (!isalnum(s[right])) {
         right--;
-      }
-      if (left >= right) {
-        break;
-      }
-      if (tolower(s[left++]) != tolower(s[right--])) {
+      } else if (tolower(s[left++]) != tolower(s[right--])) {
         return false;
       }
     }

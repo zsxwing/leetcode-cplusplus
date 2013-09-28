@@ -22,5 +22,6 @@ using namespace std::tr1;
 #include "list_node.h"
 #include "interval.h"
 #include "tree_link_node.h"
+#include "undirected_graph_node.h"
 
 #endif // COMMON_H

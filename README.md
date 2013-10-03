@@ -8,6 +8,8 @@ My C++ solutions for [LeetCode Online Judge](http://oj.leetcode.com/).
 
 ## Requirements
 * gcc >= 4.6
+or
+* clang >= 3.1
 
 ## Install gtest
 I use google test library to write unit tests. So before building, you need to use the following commands to set up gtest.
@@ -26,6 +28,9 @@ The above command will generate two source file: src/some_question.h, test/some_
 
 ## Build
 
+If you are not using `g++`, you need to set `CXX` to the compiler which you are using. For example, `export CXX=clang++`.
+
+After that, you can use the following command to build and test.
 ```shell
 make
 ```

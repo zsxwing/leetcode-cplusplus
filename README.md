@@ -10,7 +10,7 @@ My C++ solutions for [LeetCode Online Judge](http://oj.leetcode.com/).
 I use google test library to write unit tests. So before building, you need to use the following commands to set up gtest.
 
 ```Shell
-chmod u+x install_contrib.sh
+chmod u+x contrib/install_contrib.sh
 contrib/install_contrib.sh
 ```
 ## Generate a file for a question

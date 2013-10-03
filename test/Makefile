@@ -19,7 +19,7 @@ include $(DEPENDS)
 
 %.unittest : %.cc
 	@set -e
-	$(CXX) $(CXX_FLAG) -ggdb $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $(<:.cc=) $<
+	$(CXX) $(CXX_FLAG) $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $(<:.cc=) $<
 	touch $@
 	$(VALGRIND) $(<:.cc=)
 

@@ -14,13 +14,13 @@ or
 ## Install gtest
 I use google test library to write unit tests. So before building, you need to use the following commands to set up gtest.
 
-```shell
+```bash
 chmod u+x contrib/install_contrib.sh
 contrib/install_contrib.sh
 ```
 ## Generate a file for a question
 
-```shell
+```bash
 ./question.sh Some Question
 ```
 
@@ -31,7 +31,7 @@ The above command will generate two source file: src/some_question.h, test/some_
 If you are not using `g++`, you need to set `CXX` to the compiler which you are using. For example, `export CXX=clang++`.
 
 After that, you can use the following command to build and test.
-```shell
+```bash
 make
 ```
 

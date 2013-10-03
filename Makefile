@@ -1,5 +1,5 @@
 
-CXX:=clang++-mp-3.1
+CXX:=g++
 CXX_FLAG=
 BUILD_DIR=build
 LIB_DIR:=lib

@@ -1,6 +1,6 @@
 
 CXX:=g++
-CXX_FLAG=-std=c++11
+CXX_FLAG=
 BUILD_DIR=build
 LIB_DIR:=lib
 

@@ -1,6 +1,6 @@
 
 CXX:=g++
-CXX_FLAG=
+CXX_FLAG=-ggdb -std=c++0x
 BUILD_DIR=build
 LIB_DIR:=lib
 

@@ -3,5 +3,6 @@ install: chmod u+x contrib/install_contrib.sh && contrib/install_contrib.sh
 script: make
 compiler:
    - gcc
+   - clang
 notifications:
   email: false

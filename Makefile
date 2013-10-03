@@ -1,7 +1,10 @@
 
+ifndef CXX
 CXX:=g++
-CXX_FLAG=-ggdb -std=c++0x
-BUILD_DIR=build
+endif
+
+CXX_FLAG:=-ggdb -std=c++0x
+BUILD_DIR:=build
 LIB_DIR:=lib
 
 INCLUDE_DIR:=include
@@ -16,7 +19,7 @@ TEST_LIB_FLAG:=-L$(LIB_DIR) $(foreach l,$(TEST_LIB),-l$(l))
 FIND_VALGRIND:=$(shell which valgrind 1>$&/dev/null; echo $$?)
 
 ifeq ($(FIND_VALGRIND), 0)
-VALGRIND := valgrind --tool=memcheck 
+VALGRIND:=valgrind --tool=memcheck 
 endif
 
 include src/Makefile

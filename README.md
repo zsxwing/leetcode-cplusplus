@@ -1,15 +1,29 @@
 leetcode-cplusplus
 ==================
 
-My solutions for "Interview Questions Online Judge" in the leetcode.com
+My C++ solutions for [LeetCode Online Judge](http://oj.leetcode.com/).
 
-I use google test library to write unit tests.
+## Requirements
+* gcc >= 4.2
 
-== Install gtest ==
+## Install gtest
+I use google test library to write unit tests. So before building, you need to use the following commands to set up gtest.
 
-contrib/install_contrib.sh 
+```Shell
+chmod u+x install_contrib.sh
+contrib/install_contrib.sh
+```
+## Generate a file for a question
 
-== Compile ==
+```Shell
+./question.sh Some Question
+```
 
+The above command will generate two source file: src/some_question.h, test/some_question_test.cc. You can write your solution and unit tests directly.
+
+== Build ==
+
+'''Shell
 make
+'''
 

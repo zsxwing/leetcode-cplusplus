@@ -7,7 +7,7 @@ My C++ solutions for [LeetCode Online Judge](http://oj.leetcode.com/).
 [![Build Status](https://travis-ci.org/zsxwing/leetcode-cplusplus.png?branch=master)](https://travis-ci.org/zsxwing/leetcode-cplusplus)
 
 ## Requirements
-* gcc >= 4.2
+* gcc >= 4.6
 
 ## Install gtest
 I use google test library to write unit tests. So before building, you need to use the following commands to set up gtest.

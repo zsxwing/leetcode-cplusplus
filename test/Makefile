@@ -13,13 +13,13 @@ include $(DEPENDS)
 
 %.d : %.cc
 	set -e; rm -f $@; \
-	$(CXX) -MT $(<:.cc=.o) -MM $(TEST_INCLUDE_FLAG) $< > $@.$$$$; \
+	$(CXX) $(CXX_FLAG) -MT $(<:.cc=.o) -MM $(TEST_INCLUDE_FLAG) $< > $@.$$$$; \
 	sed 's,\($*\)\.o[ :]*,\1.unittest $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$
 
 %.unittest : %.cc
 	@set -e
-	$(CXX) -ggdb $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $(<:.cc=) $<
+	$(CXX) $(CXX_FLAG) -ggdb $(TEST_INCLUDE_FLAG) $(TEST_LIB_FLAG) -o $(<:.cc=) $<
 	touch $@
 	$(VALGRIND) $(<:.cc=)
 

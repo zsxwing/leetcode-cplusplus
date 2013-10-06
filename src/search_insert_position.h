@@ -7,10 +7,8 @@ public:
       int middle = low + (high - low) / 2;
       if (A[middle] < target) {
         low = middle + 1;
-      } else if (A[middle] > target) {
-        high = middle - 1;
       } else {
-        return middle;
+        high = middle - 1;
       }
     }
     return low;

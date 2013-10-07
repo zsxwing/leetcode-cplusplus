@@ -1,34 +1,32 @@
 class Solution {
-private:
-  RandomListNode *getNewNode(
-      unordered_map<RandomListNode *, RandomListNode *> &nodes,
-      RandomListNode *oldNode) {
-    RandomListNode *newNode;
-    auto iter = nodes.find(oldNode);
-    if (iter == nodes.end()) {
-      newNode = new RandomListNode(oldNode->label);
-      nodes[oldNode] = newNode;
-    } else {
-      newNode = iter->second;
-    }
-    return newNode;
-  }
-
 public:
   RandomListNode *copyRandomList(RandomListNode *head) {
-    RandomListNode *newHead = NULL;
+    if (head == NULL) {
+      return NULL;
+    }
     RandomListNode *p = head;
-    unordered_map<RandomListNode *, RandomListNode *> nodes;
     while (p) {
-      RandomListNode *newP = getNewNode(nodes, p);
-      if (newHead == NULL) {
-        newHead = newP;
+      RandomListNode *newP = new RandomListNode(p->label);
+      newP->next = p->next;
+      newP->random = p->random;
+      p->next = newP;
+      p = newP->next;
+    }
+    p = head;
+    RandomListNode *newHead = p->next;
+    while (p) {
+      RandomListNode * newP = p->next;
+      if (newP->random) {
+        newP->random = newP->random->next;
       }
-      if (p->next) {
-        newP->next = getNewNode(nodes, p->next);
-      }
-      if (p->random) {
-        newP->random = getNewNode(nodes, p->random);
+      p = newP->next;
+    }
+    p = head;
+    while (p) {
+      RandomListNode *newP = p->next;
+      p->next = newP->next;
+      if (newP->next) {
+        newP->next = newP->next->next;
       }
       p = p->next;
     }

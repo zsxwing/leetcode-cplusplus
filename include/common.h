@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <queue>
 #include <limits>
+#include <sstream>
 using namespace std;
 
 #include <tr1/unordered_set>

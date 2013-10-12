@@ -24,7 +24,9 @@ contrib/install_contrib.sh
 ./question.sh Some Question
 ```
 
-The above command will generate two source file: src/some_question.h, test/some_question_test.cc. You can write your solution and unit tests directly.
+The above command will generate two source file: 
+`src/some_question.h`: the solution you need to implement.
+`test/some_question_test.cc`: you can write your unit tests here.
 
 ## Build
 

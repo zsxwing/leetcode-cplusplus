@@ -1,10 +1,12 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <stdio.h>
 #include <stdlib.h>
 #include <assert.h>
 #include <limits.h>
 
+#include <iostream>
 #include <string>
 #include <vector>
 #include <stack>

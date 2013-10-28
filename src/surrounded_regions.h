@@ -1,12 +1,12 @@
 class Solution {
 private:
-  bool isOutOfBoard(vector<vector<char>> &board, int x, int y) {
+  bool isOutOfBoard(vector<vector<char> > &board, int x, int y) {
     int w = board[0].size();
     int h = board.size();
     return x<0 || x>=w || y<0 || y>=h;
   }
 
-  void flipEdge(vector<vector<char>> &board, int x, int y) {
+  void flipEdge(vector<vector<char> > &board, int x, int y) {
     if(isOutOfBoard(board, x, y)){
       return;
     }
@@ -29,7 +29,7 @@ public:
    *   h
    * h = 3, w = 4
    */
-  void solve(vector<vector<char>> &board) {
+  void solve(vector<vector<char> > &board) {
     if(board.size() == 0 || board[0].size() == 0) {
       return;
     }

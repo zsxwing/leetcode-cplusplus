@@ -10,7 +10,7 @@ public:
       dp[i] = i - 1;
     }
     for (int i = 0; i < s.size(); i++) {
-      for (int j = i; j >= 0; j--) {
+      for (int j = 0; j <= i; j++) {
         if (s[i] == s[j] && (i - j < 2 || isPalindrome[j + 1][i - 1])) {
           isPalindrome[j][i] = true;
           dp[i + 1] = min(dp[i + 1], dp[j] + 1);

@@ -1,11 +1,13 @@
-const static int START = 1;
-const static int DECIMAL = 2;
-const static int FRACTION = 3;
-const static int E = 4;
-const static int SIGNAL = 5;
-const static int E_SIGNAL = 6;
-const static int E_DECIMAL = 7;
-const static int DOT = 8;
+enum {
+  START = 0,
+  DECIMAL = 2,
+  FRACTION = 3,
+  E = 4,
+  SIGNAL = 5,
+  E_SIGNAL = 6,
+  E_DECIMAL = 7,
+  DOT = 8
+};
 
 class Solution {
 private:

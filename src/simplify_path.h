@@ -1,18 +1,13 @@
-#include <string>
-using namespace std;
-
-static const int DOT = 1;
-static const int DOUBLE_DOT = 2;
-static const int NORMAL = 3;
-static const int SLASH = 4;
+enum {
+  DOT = 0, DOUBLE_DOT, NORMAL, SLASH
+};
 
 class Solution {
 public:
   string simplifyPath(string path) {
     string simplify;
     int state = SLASH;
-    int lastSlashPos = -1;
-    for (int i = 0; i < path.size(); i++) {
+    for (int i = 1; i < path.size(); i++) {
       char c = path[i];
       switch (state) {
       case DOT:
@@ -20,65 +15,52 @@ public:
           state = DOUBLE_DOT;
         } else if (c == '/') {
           state = SLASH;
-          lastSlashPos = i;
         } else {
+          simplify += '/';
+          simplify += '.';
+          simplify += c;
           state = NORMAL;
         }
         break;
       case DOUBLE_DOT:
         if (c == '/') {
           int pos = simplify.rfind('/');
-          if (pos == string::npos) {
-            simplify = "";
-          } else {
+          if (pos != string::npos) {
             simplify = simplify.substr(0, pos);
           }
           state = SLASH;
-          lastSlashPos = i;
         } else {
+          simplify += '/';
+          simplify += '.';
+          simplify += '.';
+          simplify += c;
           state = NORMAL;
         }
         break;
       case NORMAL:
         if (c == '/') {
-          simplify += "/";
-          simplify += path.substr(lastSlashPos + 1, i - lastSlashPos - 1);
           state = SLASH;
-          lastSlashPos = i;
         } else {
-          state = NORMAL;
+          simplify += c;
         }
         break;
       case SLASH:
         if (c == '/') {
-          state = SLASH;
-          lastSlashPos = i;
         } else if (c == '.') {
           state = DOT;
         } else {
           state = NORMAL;
+          simplify += '/';
+          simplify += c;
         }
         break;
       }
     }
-    switch (state) {
-    case DOT:
-      break;
-    case DOUBLE_DOT: {
+    if (state == DOUBLE_DOT) {
       int pos = simplify.rfind('/');
-      if (pos == string::npos) {
-        simplify = "";
-      } else {
+      if (pos != string::npos) {
         simplify = simplify.substr(0, pos);
       }
-    }
-      break;
-    case NORMAL:
-      simplify += "/";
-      simplify += path.substr(lastSlashPos + 1);
-      break;
-    case SLASH:
-      break;
     }
     return simplify == "" ? "/" : simplify;
   }

@@ -1,6 +1,6 @@
 class Solution {
 public:
-  vector< vector<string> > findLadders(string start, string end,
+  vector<vector<string> > findLadders(string start, string end,
       unordered_set<string> &dict) {
     vector < vector<string> > res;
     if (start == end) {
@@ -62,6 +62,7 @@ public:
             }
             reverse(temp.begin(), temp.end());
             res.push_back(temp);
+            break;
           } else if (searched.find(*iter) == searched.end()) {
             q.push_back(*iter);
             path.push_back(i);
